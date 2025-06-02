@@ -17,7 +17,7 @@ def create_app():
 
     # DB URI doğrudan buraya yazıldı (env kullanmıyoruz)
     app.config['SQLALCHEMY_DATABASE_URI'] = (
-    f"mysql://{os.environ.get('MYSQLUSER')}:{os.environ.get('MYSQLPASSWORD')}"
+    f"mysql+pymysql://{os.environ.get('MYSQLUSER')}:{os.environ.get('MYSQLPASSWORD')}"
     f"@{os.environ.get('MYSQLHOST')}:{os.environ.get('MYSQLPORT')}/{os.environ.get('MYSQLDATABASE')}"
 )
     
