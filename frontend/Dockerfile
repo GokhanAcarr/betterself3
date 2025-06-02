@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build --configuration production
+RUN npm run build
 
 # 2. Aşama: Nginx ile sun
 FROM nginx:alpine
