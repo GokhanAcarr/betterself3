@@ -23,7 +23,7 @@ COPY . .
 
 # Ortam değişkenlerini (test için) burada verebilirsin, ama prod ortamda dışardan vermek daha güvenli.
 ENV MYSQLUSER=root
-ENV MYSQLPASSWORD=1234
+ENV MYSQLPASSWORD=wEjALybJnvRScHekxdHMysrARoKdBibJ
 ENV MYSQLHOST=mysql.railway.internal
 ENV MYSQLPORT=3306
 ENV MYSQLDATABASE=exercisedb
