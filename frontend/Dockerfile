@@ -1,11 +1,21 @@
-FROM node:alpine
+# 1. Build stage
+FROM node:alpine as builder
 
-WORKDIR /betterself
+WORKDIR /app
 
-RUN npm install -g @angular/cli
-
-COPY . .
-
+COPY package*.json ./
 RUN npm install
 
-CMD [ "ng", "serve", "--host", "0.0.0.0" ]
+COPY . .
+RUN npm run build -- --configuration production
+
+# 2. Production stage
+FROM nginx:alpine
+
+# Build sonrası oluşan dist dosyalarını nginx'in default root dizinine kopyala
+COPY --from=builder /app/dist/betterself2 /usr/share/nginx/html
+
+# 80 portu expose et
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
