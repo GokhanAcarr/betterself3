@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WaterIntakeService {
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'https://backend-production-6a15.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

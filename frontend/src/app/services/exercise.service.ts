@@ -32,7 +32,7 @@ interface CreateProgramResponse {
   providedIn: 'root'
 })
 export class ExerciseService {
-  private baseUrl = 'http://localhost:5000';
+  private baseUrl = 'https://backend-production-6a15.up.railway.app';
 
   constructor(private http: HttpClient) {}
 

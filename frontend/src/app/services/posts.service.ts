@@ -13,7 +13,7 @@ export interface Post {
   providedIn: 'root',
 })
 export class PostService {
-  private apiUrl = 'http://127.0.0.1:5000/posts';
+  private apiUrl = 'https://backend-production-6a15.up.railway.app/posts';
 
   constructor(private http: HttpClient) {}
 

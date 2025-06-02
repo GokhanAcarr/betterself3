@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FoodService {
-  private baseUrl = 'http://localhost:5000/food';
+  private baseUrl = 'https://backend-production-6a15.up.railway.app/food';
 
   constructor(private http: HttpClient) {}
 
