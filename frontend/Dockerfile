@@ -1,5 +1,4 @@
-# 1. Build stage
-FROM node:alpine as builder
+FROM node:18 as build
 
 WORKDIR /app
 
@@ -7,13 +6,13 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build -- --configuration production
 
-# 2. Production stage
+RUN npm run build
+
+# 2. Aşama: NGINX ile statik dosyaları servis et
 FROM nginx:alpine
 
-COPY --from=builder /app/dist/betterself2/browser /usr/share/nginx/html
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/betterself2 /usr/share/nginx/html
 
 EXPOSE 80
 
