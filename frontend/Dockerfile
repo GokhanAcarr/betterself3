@@ -14,7 +14,7 @@ FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Angular build çıktısını nginx'in html klasörüne kopyala
-COPY --from=build /app/dist/betterself2/browser /usr/share/nginx/html
+COPY --from=build /app/dist/betterself2 /usr/share/nginx/html
 
 EXPOSE 80
 
