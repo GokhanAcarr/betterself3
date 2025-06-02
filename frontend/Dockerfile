@@ -12,7 +12,7 @@ RUN npm run build
 # 2. Aşama: NGINX ile statik dosyaları servis et
 FROM nginx:alpine
 
-COPY --from=build /app/dist/betterself2 /usr/share/nginx/html
+COPY --from=build /app/dist/betterself2/browser /usr/share/nginx/html
 
 EXPOSE 80
 

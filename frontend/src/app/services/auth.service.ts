@@ -22,7 +22,8 @@ export interface User {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://frontend-production-f836.up.railway.app/auth';
+  private apiUrl = 'https://backend-production-6a15.up.railway.app/auth';
+
 
   constructor(private http: HttpClient, private router: Router) {}
 
