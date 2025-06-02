@@ -5,13 +5,17 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
-
+RUN npm run build --configuration production
 
 # 2. Aşama: Nginx ile sun
 FROM nginx:alpine
 
-# Angular 19 build çıktısı: dist/betterself2/browser
+# Nginx config dosyasını kopyala
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Angular build çıktısını kopyala
 COPY --from=build /app/dist/betterself2/browser /usr/share/nginx/html
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
