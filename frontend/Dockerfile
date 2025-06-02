@@ -12,7 +12,7 @@ RUN npm run build -- --configuration production
 # 2. Production stage
 FROM nginx:alpine
 
-COPY --from=builder /app/dist/betterself2 /usr/share/nginx/html
+COPY --from=builder /app/dist/betterself2/browser /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
