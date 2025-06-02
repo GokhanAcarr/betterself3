@@ -12,10 +12,9 @@ RUN npm run build -- --configuration production
 # 2. Production stage
 FROM nginx:alpine
 
-# Build sonrası oluşan dist dosyalarını nginx'in default root dizinine kopyala
 COPY --from=builder /app/dist/betterself2 /usr/share/nginx/html
+COPY default.conf /etc/nginx/conf.d/default.conf
 
-# 80 portu expose et
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
