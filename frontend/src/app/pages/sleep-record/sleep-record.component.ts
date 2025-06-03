@@ -30,7 +30,7 @@ export class SleepRecordComponent implements OnInit {
   }
 
   saveSleepHours() {
-    if (this.inputHours == null || this.inputHours < 0) {
+    if (this.inputHours == null || this.inputHours < 0 || this.inputHours > 24) {
       this.errorMsg = 'Wrong Entry.';
       return;
     }
