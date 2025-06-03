@@ -80,11 +80,14 @@ export class AdminComponent implements OnInit {
   deleteUser(userId: number): void {
     if (confirm('Are you sure you want to delete this user?')) {
       this.authService.deleteUser(userId).subscribe({
-        next: () => this.loadUsers(),
+        
+        next: () => {
+        this.loadUsers()
+        alert('User deleted successfully.');  },
+        
         error: (err) => console.error('Delete failed:', err),
       });
     }
-    alert('User deleted successfully.');
   }
 
 
