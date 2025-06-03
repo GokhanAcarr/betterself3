@@ -104,7 +104,6 @@ export class OverviewComponent implements OnInit, AfterViewInit {
     this.chart.destroy();
   }
 
-  // Her bar için farklı background ve border renkleri
   const backgroundColors = [
     'rgba(255, 99, 132, 0.7)',
     'rgba(54, 162, 235, 0.7)',
@@ -115,7 +114,6 @@ export class OverviewComponent implements OnInit, AfterViewInit {
     'rgba(199, 199, 199, 0.7)'
   ];
 
-  // Border renkleri background renklerinin opak hali (alpha=1)
   const borderColor = 'gray';
 
   const config: ChartConfiguration = {
@@ -185,6 +183,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   }
 
   logout(): void {
+    alert('Logged Out Successfully');
     this.authService.logout();
     this.router.navigate(['/login']);
   }
@@ -198,7 +197,7 @@ export class OverviewComponent implements OnInit, AfterViewInit {
     }
 
     if (!this.date || !/^\d{4}-\d{2}-\d{2}$/.test(this.date)) {
-      alert('Tarih formatı YYYY-MM-DD olmalı');
+      alert('Invalid date format. Please use YYYY-MM-DD.');
       this.assignedExercises = [];
       return;
     }

@@ -1,6 +1,5 @@
 FROM python:3.13-slim
 
-# Sistem bağımlılıkları (MySQL client, build tools vs)
 RUN apt-get update && apt-get install -y \
     gcc \
     libmariadb-dev \
@@ -21,7 +20,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Ortam değişkenlerini (test için) burada verebilirsin, ama prod ortamda dışardan vermek daha güvenli.
 ENV MYSQLUSER=root
 ENV MYSQLPASSWORD=wEjALybJnvRScHekxdHMysrARoKdBibJ
 ENV MYSQLHOST=mysql.railway.internal

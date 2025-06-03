@@ -67,7 +67,6 @@
       <ng-container *ngIf="todayCalories !== null && todayCalories !== undefined && todayCalories > 0; else noCalorieData">
         <p class="small mb-2">Total Calories:</p>
         <h4>{{ todayCalories | number:'1.0-0' }} kcal</h4>
-        <!-- Opsiyonel progress bar -->
         <div class="progress" style="height: 8px;">
           <div class="progress-bar bg-danger"
                role="progressbar"

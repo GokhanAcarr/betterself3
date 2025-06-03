@@ -75,8 +75,8 @@ export class NutritionComponent implements OnInit {
       this.foodQuantities[food.name] = 100;
     },
     error: (err) => {
-      console.error('Yemek eklenirken hata:', err);
-      alert('Yemek eklenirken hata oluştu.');
+      console.error('Food Log Error:', err);
+      alert('An Error occurred while logging the food. Please try again.');
     }
   });
 }
@@ -105,8 +105,8 @@ export class NutritionComponent implements OnInit {
         this.loadLoggedFoods();
       },
       error: (err) => {
-        console.error('Silme hatası:', err);
-        alert('Yemek kaydı silinirken hata oluştu.');
+        console.error('Deletion Error', err);
+        alert('An error occurred while deleting the food log. Please try again.');
       }
     });
   }

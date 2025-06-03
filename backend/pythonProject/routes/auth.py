@@ -31,7 +31,6 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    # Default records
     db.session.add(WaterIntake(user_id=user.id, count=0, last_reset_date=date.today()))
     db.session.add(SleepRecord(user_id=user.id, hours_slept=None, last_reset_date=date.today()))
     db.session.commit()

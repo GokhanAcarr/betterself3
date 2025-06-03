@@ -53,7 +53,7 @@ export class ExerciseComponent {
     this.exerciseService.getAllExercises(token).subscribe({
       next: (data) => {
         this.exercises = data;
-        this.filteredExercises = data; // ilk yüklemede filtreli listeyi de doldur
+        this.filteredExercises = data;
       },
       error: (err) => {
         console.error('Exercise loading error:', err);
@@ -113,7 +113,7 @@ export class ExerciseComponent {
 
   this.exerciseService.createProgram(token, this.newProgramName, this.newProgramImageUrl).subscribe({
     next: (response) => {
-      const createdProgram = response.program;  // Burada artık doğru tip
+      const createdProgram = response.program;
       const exerciseIds = this.selectedExercises.map(ex => ex.id);
       console.log('Selected exercise IDs:', exerciseIds);
 
@@ -154,7 +154,6 @@ export class ExerciseComponent {
     this.exerciseService.assignProgram(token, program.id!, this.selectedDate).subscribe({
       next: () => {
         alert(`Program "${program.name}" assigned to ${this.selectedDate}`);
-        // UI güncellemeleri buraya
       },
       error: (err) => {
         console.error('Error assigning program:', err);

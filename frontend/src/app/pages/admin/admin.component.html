@@ -1,12 +1,10 @@
 <div class="d-flex vh-100">
-  <!-- Sidebar -->
   <app-sidebar [isAdmin]="isAdmin"></app-sidebar>
 
-  <!-- Main Content -->
   <main class="flex-grow-1 p-4 overflow-hidden" style="background-color: #f9f5f2; height: 100vh;">
     <div class="d-flex gap-4 h-100">
       
-      <!-- Card 1: Create Exercise -->
+
       <div class="card shadow rounded-4 p-4 flex-fill" style="min-width: 400px; max-width: 600px; overflow-y: auto;">
         <h4 class="mb-3">Create Exercise</h4>
         <form (ngSubmit)="addExercise()" #exerciseForm="ngForm" novalidate>
@@ -94,11 +92,10 @@
         </form>
       </div>
 
-      <!-- Card 2: List of Users -->
+
       <div class="card shadow rounded-4 p-4 flex-fill" style="min-width: 400px; max-width: 600px; overflow-y: auto;">
         <h4 class="mb-3">List of Users</h4>
 
-        <!-- Filter Input -->
         <div class="mb-3">
           <input
             type="text"
@@ -110,7 +107,7 @@
           />
         </div>
 
-        <!-- User Table -->
+
         <table class="table table-striped">
           <thead>
             <tr>
@@ -145,7 +142,6 @@
     </div>
   </main>
 
-  <!-- Edit Modal -->
   <div *ngIf="displayEditDialog" class="modal-backdrop fade show"></div>
   <div
     *ngIf="displayEditDialog"

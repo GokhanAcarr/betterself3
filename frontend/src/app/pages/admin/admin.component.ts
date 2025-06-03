@@ -20,7 +20,6 @@ export class AdminComponent implements OnInit {
   editUser: Partial<User> = {};
   searchTerm: string = '';
 
-  // Yeni: Exercise için form alanları
   newExercise: Partial<Exercise> = {
     name: '',
     category: '',
@@ -28,7 +27,7 @@ export class AdminComponent implements OnInit {
     image_url: '',
   };
 
-  // Yeni: Form gönderim durumu
+
   exerciseAdding = false;
   exerciseAddError: string | null = null;
   exerciseAddSuccess: string | null = null;
@@ -86,7 +85,7 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  // Yeni: Exercise ekleme fonksiyonu
+
   addExercise(): void {
     if (
       !this.newExercise.name ||
@@ -106,7 +105,6 @@ export class AdminComponent implements OnInit {
       next: (res) => {
         this.exerciseAddSuccess = res.message || 'Exercise added successfully.';
         this.exerciseAdding = false;
-        // Formu temizle
         this.newExercise = {
           name: '',
           category: '',

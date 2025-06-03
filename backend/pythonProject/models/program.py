@@ -21,7 +21,7 @@ class UserCustomProgramExercise(db.Model):
     exercise_id = db.Column(db.Integer, db.ForeignKey('exercise.id'), nullable=False)
 
     program = db.relationship('UserCustomProgram', back_populates='exercises')
-    exercise = db.relationship('Exercise')  # direkt ilişkili model
+    exercise = db.relationship('Exercise')
 
 
 class UserDailyProgramAssignment(db.Model):

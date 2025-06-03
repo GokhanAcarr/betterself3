@@ -19,7 +19,6 @@ class User(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     is_admin = db.Column(db.Boolean, default=False)
 
-    # İlişkiler (diğer modeller tanımlandıkça aktifleşir)
     water_intake = db.relationship('WaterIntake', uselist=False, back_populates='user', cascade='all, delete-orphan')
     sleep_record = db.relationship('SleepRecord', uselist=False, back_populates='user', cascade='all, delete-orphan')
 

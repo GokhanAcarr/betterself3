@@ -35,7 +35,7 @@ canvas {
   gap: 12px;
   padding: 8px 12px;
   border-radius: 6px;
-  background-color: rgba(101, 71, 143, 0.15); /* #65478F renginin %15 opaklığı */
+  background-color: rgba(101, 71, 143, 0.15);
   margin-bottom: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -54,7 +54,7 @@ canvas {
 
 .exercise-text strong {
   display: block;
-  color: #65478F; /* Başlıklarda da aynı mor-mavi ton */
+  color: #65478F;
   font-size: 1rem;
 }
 
