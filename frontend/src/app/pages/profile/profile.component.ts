@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
     if (user) {
       this.isAdmin = user.is_admin || false;
     }
+    console.log('User data:', user);
   }
 
   loadUser(): void {

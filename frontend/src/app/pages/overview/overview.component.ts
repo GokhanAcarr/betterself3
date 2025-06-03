@@ -55,14 +55,13 @@ export class OverviewComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     const user = this.authService.getUser();
+    console.log('User data:', user);
 
     if (user) {
       this.isAdmin = user.is_admin ?? false;
       this.userFirstName = user.first_name ?? 'User';
       this.loadSleepQuality(user.preferred_sleep_hours ?? 0);
-      setTimeout(() => {
-  this.progressPercent = this.calculateProgress();
-});
+      this.progressPercent = this.calculateProgress();
       this.loadAssignedExercises();
       this.loadTodayCalories();
     }
