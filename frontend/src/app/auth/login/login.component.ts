@@ -30,6 +30,7 @@ export class LoginComponent {
       next: (response) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('user', JSON.stringify(response.user));
+        alert('Login successful!');
         this.router.navigate(['/overview']);
       },
       error: (error) => {

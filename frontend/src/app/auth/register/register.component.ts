@@ -33,12 +33,12 @@ export class RegisterComponent {
 
     this.authService.register(payload).subscribe({
       next: () => {
-        alert('Kayıt başarılı!');
+        alert('Registration successful! Please log in.');
         this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.error('Kayıt hatası', err);
-        alert('Kayıt sırasında hata oluştu!');
+        console.error('Registiration Error', err);
+        alert('An error occurred during registration. Please try again.');
       }
     });
   }

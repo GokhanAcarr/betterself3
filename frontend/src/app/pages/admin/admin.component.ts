@@ -65,6 +65,7 @@ export class AdminComponent implements OnInit {
       next: () => {
         this.displayEditDialog = false;
         this.loadUsers();
+        alert('User updated successfully.');
       },
       error: (err) => console.error('Update failed:', err),
     });
@@ -83,6 +84,7 @@ export class AdminComponent implements OnInit {
         error: (err) => console.error('Delete failed:', err),
       });
     }
+    alert('User deleted successfully.');
   }
 
 
@@ -111,6 +113,7 @@ export class AdminComponent implements OnInit {
           description: '',
           image_url: '',
         };
+        alert("Exercise added successfully.");
       },
       error: (err) => {
         this.exerciseAddError = err.error?.error || 'Failed to add exercise.';
