@@ -44,6 +44,8 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   progressPercent: number = 0;
   assignedExercises: Exercise[] = [];
   todayCalories: number = 0;
+  weight: number | null = null;
+  targetWeight: number | null = null;
 
   constructor(
     private authService: AuthService,
