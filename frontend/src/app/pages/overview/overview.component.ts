@@ -56,18 +56,25 @@ export class OverviewComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    const user = this.authService.getUser();
-    console.log('User data:', user);
+  const localUser = this.authService.getUser();
 
-    if (user) {
-      this.isAdmin = user.is_admin ?? false;
-      this.userFirstName = user.first_name ?? 'User';
-      this.loadSleepQuality(user.preferred_sleep_hours ?? 0);
-      this.progressPercent = this.calculateProgress();
-      this.loadAssignedExercises();
-      this.loadTodayCalories();
-    }
+  if (localUser) {
+    this.authService.fetchUser(localUser.id).subscribe({
+      next: (user) => {
+        console.log('Fetched full user from backend:', user);
+        this.isAdmin = user.is_admin ?? false;
+        this.userFirstName = user.first_name ?? 'User';
+        this.progressPercent = this.calculateProgress(user);
+        this.loadSleepQuality(user.preferred_sleep_hours ?? 0);
+        this.loadAssignedExercises();
+        this.loadTodayCalories();
+      },
+      error: (err) => {
+        console.error('Failed to fetch user data from backend:', err);
+      }
+    });
   }
+}
 
   ngAfterViewInit(): void {
     this.loadWeeklyCaloriesAndRenderChart();
@@ -170,19 +177,18 @@ export class OverviewComponent implements OnInit, AfterViewInit {
     return Math.min(quality, 100);
   }
 
-  private calculateProgress(): number {
-    const user = this.authService.getUser();
-    if (!user || !user.weight_kg || !user.target_weight_kg) return 0;
+  private calculateProgress(user: any): number {
+  if (!user || !user.weight_kg || !user.target_weight_kg) return 0;
 
-    const current = user.weight_kg;
-    const target = user.target_weight_kg;
+  const current = user.weight_kg;
+  const target = user.target_weight_kg;
 
-    if (current <= target) return 100;
+  if (current <= target) return 100;
 
-    const totalToLose = current - target;
-    const progress = (1 - (totalToLose / current)) * 100;
-    return Math.min(Math.max(progress, 0), 100);
-  }
+  const totalToLose = current - target;
+  const progress = (1 - (totalToLose / current)) * 100;
+  return Math.min(Math.max(progress, 0), 100);
+}
 
   logout(): void {
     alert('Logged Out Successfully');
