@@ -37,6 +37,9 @@ export class WaterIntakeComponent implements OnInit {
       next: (res) => {
         this.count = res.count;
         this.loading = false;
+        if (this.count >= this.maxCups) {
+          alert('Congratulations! You can stop drinking water for today.');
+        }
       },
       error: (err) => {
         console.error(err);
